@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Your Ticket</title>
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+        <script src="/__/firebase/7.9.1/firebase-auth.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="home.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+
+        <h1>Your Ticket</h1>
+
+        <div class="content" >
+            
+           <table width="200" border="1" id="list_div">
+  <tbody>
+    <tr>
+      <th width="27%" scope="row">Ticket ID</th>
+      <td width="73%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">Date</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">Title</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th height="167" scope="row">Content</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">Teacher Details</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">Teacher Email</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">Department</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">Student Details</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">Grade</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th height="144" scope="row">Coments</th>
+      <td><form name="form1" method="post" action="">
+        <p>Leave a Comment</p>
+       <textarea name="comment" rows="10" required></textarea>
+	   <button  type="submit" id="submitBtn">Submit</button>
+      </form></td>
+    </tr>
+    </tbody>
+</table>
+<button onclick="goBack()" id="submitBtn">Back to tickets</button>
+    </div>
+    <script>
+    function goBack(){
+        window.open("tickets.html","_self");
+      }
+    </script>
+        <!-- <script src="app.js"></script> -->
+    </body>
+</html>

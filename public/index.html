@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Behavioral Form</title>
+    <script src="/__/firebase/7.9.1/firebase-app.js"></script>
+      <script src="/__/firebase/7.9.1/firebase-auth.js"></script>
+      <script src="/__/firebase/init.js"></script>
+      <script src="/__/firebase/7.9.1/firebase-firestore.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+   
+    <div class="testbox" >
+      <form id="add-ticket-form">
+        <h1><img class="logo" src="img/aths.png"  alt="aths logo"/></h1>
+        <p>&nbsp;</p>
+        <h1>Behavioral Form - Ticket Submission</h1>
+        <div class="item">
+          <p>Title</p>
+          <input type="text" name="Title" placeholder="Example" id="Title" required>
+          <p>Teacher Details</p>
+          <div>
+            <input type="text" name="TFname" placeholder="First name" required>
+            <input type="text" name="TLname" placeholder="Last name" required>
+          </div>
+          <p>Student Details</p>
+          <div>
+            <input type="text" name="SFname" placeholder="First name" required>
+            <input type="text" name="SLname" placeholder="Last name" required>
+            <p>Grade</p>
+            <select required name="Grade"> 
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+        </div>
+        <div class="item">
+          <p>Email</p>
+          <input type="email" name="Email" placeholder="Email" required>
+        </div>
+        <div class="item">
+          <p>Date</p>
+          <input type="date" id="datepicker" name="date" required/>
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="item">
+          <p>Department</p>
+          <select required name="department"> 
+            <option value="Computer Science">Computer Science</option>
+            <option value="Applied Engineering">Applied Engineering</option>
+            <option value="Science">Science</option>
+            <option value="Arabic/Islamic/Social Studies">Arabic/Islamic/Social Studies</option>
+            <option value="English">English</option>
+          </select>
+        </div>
+                          <!-- <div class="item">
+                            <p>Priority</p>
+                            <select required name="priority" id="chosePriority"> 
+                              <option value="Low">Low</option>
+                              <option value="Medium">Medium</option>
+                              <option value="High">High</option>            
+                              <option value="Emergency">Emergency</option>            
+                            </select>
+                          </div> -->
+        <div class="item">
+          <p>Details</p>
+          <textarea rows="10" name="description" required></textarea>
+        </div>
+        <div class="btn-block">
+          <button  type="submit" id="submitBtn">Submit</button>
+          
+        </div>
+      </form>
+    </div>
+    <script src="form.js"></script>
+  </body>
+</html>
