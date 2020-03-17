@@ -1,6 +1,6 @@
 const db = firebase.firestore();
-const mainList = document.querySelector('#list_div');
 const form = document.querySelector('#add-ticket-form');
+
 
 // datepicker safari support fix
 var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
@@ -13,7 +13,8 @@ if (isSafari){ //if browser doesn't support input type="date", initialize date p
 $(document).ready(function() {
     $('#datepicker').datepicker();
 }); 
-}  
+}
+
 
 // saving data from form // submitting
 
@@ -44,3 +45,5 @@ form.addEventListener('submit', (e) => {
     alert("Your form has been submitted successfully, check your email for more information");
     
 });
+
+

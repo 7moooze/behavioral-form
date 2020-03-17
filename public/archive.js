@@ -3,20 +3,9 @@ const mainList = document.querySelector('#list_div');
 const commentForm = document.querySelector('#add-comment-form');
 const ticketList = document.querySelector('#comment-list');
 var ticknum =  document.getElementById('ticketNumberCell').innerHTML;
-var archivedComments = [];
 
 // console.log("ticknum "+ticknum);
 
-commentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    db.collection("tickets").doc(ticknum).collection("comments").add({
-
-        comment: commentForm.comment.value,
-    })
-    commentForm.comment.value = "";
-    
-    });
 
 
     function myFunction(x) {
@@ -32,10 +21,9 @@ commentForm.addEventListener('submit', (e) => {
     // console.log("Row index is: " + indexofrow);
 
     //get comments
-    db.collection("tickets").doc(ticknum).collection("comments").onSnapshot(snapshot => {
+    db.collection("archives").doc(ticknum).collection("comments").onSnapshot(snapshot => {
         let changes = snapshot.docChanges();
         changes.forEach(change => {
-        console.log(change.doc.data());
 
          // archivedComments.push(change.doc.data().comment);
         // console.log("archived comments: "+archivedComments);
@@ -67,83 +55,13 @@ commentForm.addEventListener('submit', (e) => {
 
   }
 
-  //arcive ticket 
-  function archiveRow(){
-
-    var archivedID;
-
-    console.log(ticknum);
-
-
-    var docRef = db.collection("tickets").doc(ticknum);
-
-    // Add a new document with a generated id.
-    
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-    
-        //copy to other  collection
-
-        db.collection("archives").add({
-
-        Title : doc.data().Title,
-        TFname: doc.data().TFname,
-        TLname: doc.data().TLname,
-        SFname: doc.data().SFname,
-        SLname: doc.data().SLname,
-        Grade: doc.data().Grade,
-        Email: doc.data().Email,
-        date: doc.data().date,
-        department: doc.data().department,
-        description: doc.data().description
-                 
-        }).then(function(docRef) {
-            console.log("Document archived with ID: ", docRef.id);
-
-            
-
-            db.collection("archives").doc(docRef.id).collection("comments").add({
-
-                archivedComments
-
-            })
-            .then(function(docRef) {
-                console.log("Document written with ID: ", docRef.id);
-            
-            })
-            .catch(function(error) {
-                console.error("Error adding document: ", error);
-            });
-    
-        })
-
-        
-
-        // delete from original
-
-        docRef.delete().then(function() {
-            console.log("ticket successfully archived!");
-        }).catch(function(error) {
-            console.error("Error archiving ticket: ", error);
-        });
-        
-            
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}).catch(function(error) {
-    console.log("Error getting document:", error);
-});
-
-  }
-
+ 
 //get ticket data 
-db.collection("tickets").onSnapshot(function(snapshot) {
+db.collection("archives").onSnapshot(function(snapshot) {
     snapshot.docChanges().forEach(function(change) {
         if (change.type === "added") {
             // console.log(change.doc.data());
-            ticketSummary(change.doc.id, change.doc.data().date,change.doc.data().TFname+" "+change.doc.data().TLname, change.doc.data().Title, change.doc.data().department);
+            archivesummary(change.doc.id, change.doc.data().date,change.doc.data().TFname+" "+change.doc.data().TLname, change.doc.data().Title, change.doc.data().department);
         } else if (change.type === "removed") {
 
     // document.getElementById("ticketTableBody").deleteRow(x.parentElement.parentElement.rowIndex);
@@ -154,7 +72,7 @@ db.collection("tickets").onSnapshot(function(snapshot) {
 });
 
 
-function ticketSummary(ticketNumber,ticketDate,ticketTeacherFirstName,ticketTitle,ticketDepartment){
+function archivesummary(ticketNumber,ticketDate,ticketTeacherFirstName,ticketTitle,ticketDepartment){
 
     let table = document.getElementById("ticketTableBody");
     let row = table.insertRow();
@@ -179,7 +97,7 @@ function ticketSummary(ticketNumber,ticketDate,ticketTeacherFirstName,ticketTitl
     // e.stopPropagation();
     // let id = e.target.parentElement.parentElement.getAttribute('class');
     // console.log(id);
-    // db.collection('tickets').doc(id).delete();
+    // db.collection('archives').doc(id).delete();
     //     });
 
          // view data
@@ -213,10 +131,8 @@ function ticketSummary(ticketNumber,ticketDate,ticketTeacherFirstName,ticketTitl
         //     '_blank' // <- This is what makes it open in a new window.
         //   );
 
-        var ddd = document.getElementById("deleteBtn");
-        var sss = document.getElementById("submitBtn");
-        var ccc = document.getElementById('comment');
-        var lol = db.collection('tickets').doc(newID);
+       
+        var lol = db.collection('archives').doc(newID);
         lol.get().then(function(doc) {
             if (doc.exists) {
                 //console.log("Document data:", doc.data());
@@ -231,9 +147,7 @@ function ticketSummary(ticketNumber,ticketDate,ticketTeacherFirstName,ticketTitl
                 var ticketStudentCell = document.getElementById('ticketStudentCell');
                 var ticketGradeCell = document.getElementById('ticketGradeCell');
                 
-                ddd.className = ticketNumber;
-                sss.className = ticketNumber;
-                ccc.className=ticketNumber;
+               
 
                 ticketNumberCell.innerHTML = doc.id;
                 ticketDateCell.innerHTML = ticketDate;
@@ -282,14 +196,6 @@ function renderCafe(doc){
     li.appendChild(name);
    // li.appendChild(cross);
     ticketList.appendChild(li);
-
-
-// // deleting data
-//     cross.addEventListener('click', (e) => {
-//         e.stopPropagation();
-//         let id = e.target.parentElement.getAttribute('data-id');
-//         db.collection("tickets").doc(id).collection("comments").delete();
-//     });
 
 
  }

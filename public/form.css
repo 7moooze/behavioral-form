@@ -1,8 +1,11 @@
 .logo{
-    display: block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 10%;
+  width: 15%;
+  /* position: absolute;
+    top: 40px;
+    right: 40px; */
 }
 html, body {
     min-height: 100%;
@@ -29,15 +32,18 @@ html, body {
     padding: 3px;
     }
     form {
-    width: 100%;
-    padding: 50px;
-    background: #fff;
+    width: 50%;
+    padding: 30px;
+    background: #d7f3fcc2;
     box-shadow: 0 2px 5px #ccc; 
+    border-radius: 20px;
     }
     input, select, textarea {
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 5px;
     }
     input:hover, select:hover, textarea:hover {
     outline: none;
@@ -49,11 +55,12 @@ html, body {
     }
     select {
     width: 100%;
+    max-width: 100%;
     padding: 7px 0;
-    background: transparent;
+    /* background: transparent; */
     }
     textarea {
-    width: calc(100% - 15px);
+    width: calc(100% - 1px);
     }
     .item {
     position: relative;
@@ -97,3 +104,28 @@ html, body {
     button:hover {
     background-color: #0666a3;
     }
+
+    *:focus {
+        outline: 1px solid;
+      }
+      
+      .control {
+        margin: 6px 0;
+      }
+      
+      input {
+        display: inline-block;
+        
+        vertical-align: top;
+      }
+      
+      svg#definition {
+        display: none;
+      }
+      
+      .icon {
+        width: 0.5em;
+        height: 0.5em;
+        fill: red;
+        vertical-align: top;
+      }

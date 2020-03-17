@@ -6,70 +6,74 @@
         <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
         <script src="/__/firebase/7.9.1/firebase-auth.js"></script>
         <script src="/__/firebase/init.js"></script>
-        <script src="home.js"></script>
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
+
+    
 <body>
 
         <h1>Your Ticket</h1>
 
         <div class="content" >
-            
-           <table width="200" border="1" id="list_div">
-  <tbody>
-    <tr>
-      <th width="27%" scope="row">Ticket ID</th>
-      <td width="73%">&nbsp;</td>
-    </tr>
-    <tr>
-      <th scope="row">Date</th>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th scope="row">Title</th>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th height="167" scope="row">Content</th>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th scope="row">Teacher Details</th>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th scope="row">Teacher Email</th>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th scope="row">Department</th>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th scope="row">Student Details</th>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th scope="row">Grade</th>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th height="144" scope="row">Coments</th>
-      <td><form name="form1" method="post" action="">
-        <p>Leave a Comment</p>
-       <textarea name="comment" rows="10" required></textarea>
-	   <button  type="submit" id="submitBtn">Submit</button>
-      </form></td>
-    </tr>
-    </tbody>
-</table>
-<button onclick="goBack()" id="submitBtn">Back to tickets</button>
-    </div>
-    <script>
-    function goBack(){
-        window.open("tickets.html","_self");
-      }
-    </script>
-        <!-- <script src="app.js"></script> -->
+          <!-- <p id="kkk"></p> -->
+          <form name="commentForm" id="commentForm">
+            <input type="text" placeholder="Enter Ticket ID" name="id1"> 
+            <button id="loadButton"><i class="fa fa-search"></i></button> 
+        </form>
+
+          <table width="200" border="1" id="list_div">
+              <tbody>
+                <tr>
+                  <th width="27%" scope="row">Ticket ID</th>
+                  <td width="73%" id="ticketNumberCell"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Date</th>
+                  <td id="ticketDateCell"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Title</th>
+                  <td id="ticketTitleCell"></td>
+                </tr>
+                <tr>
+                  <th height="167" scope="row">Content</th>
+                  <td id="ticketContentCell"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Teacher Details</th>
+                  <td id="ticketAuthorCell">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Teacher Email</th>
+                  <td id="ticketEmailCell">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Department</th>
+                  <td id="ticketDepartmrntCell">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Student Details</th>
+                  <td id="ticketStudentCell">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grade</th>
+                  <td id="ticketGradeCell">&nbsp;</td>
+                </tr>
+                <tr>
+                  <th height="144" scope="row">Coments</th>
+                  <td>
+                    <div id="comments">
+                      <ul id="comment-list"></ul>
+                    </div>
+              </td>
+                </tr>
+                </tbody>
+            </table>
+      </div>
+       
     </body>
+    <script src="ticket_example.js"></script>
+
+  
 </html>

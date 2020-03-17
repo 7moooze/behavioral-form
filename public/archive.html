@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Tickets</title>
+        <title>Archived Tickets</title>
             <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
@@ -12,7 +12,7 @@
 
     <body>
 
-        <h1>Tickets</h1>
+        <h1>Archived Tickets</h1>
 
         <div class="content" >
             <button onclick="logOut()" class="button">logout</button>
@@ -80,21 +80,15 @@
                             <ul id="comment-list"></ul>
                           </div>
 
-                        <form name="form1" id="add-comment-form">
-                      <p>Leave a Comment</p>
-                     <input  type='text' class="comment_box" name="comment" id="comment" required></input>
-                     <!-- <input  type='text' class="input" name="id1" id="id1" required></input> -->
-                     <button type="submit" id="submitBtn" class="button">Submit</button>
-                    </form>
+          
                 </td>
                   </tr>
                   </tbody>
               </table>
-              <button id="deleteBtn"  onclick="closeRow()" class="button">close</button>
-              <button id="deleteBtn"  onclick="archiveRow()" class="button">Archive</button>
+              <button id="deleteBtn"  onclick="closeRow()" class="button">close</button>              
         </div>
       
-        <script src="tickets.js"></script>
+        <script src="archive.js"></script>
         
         <style>
             input{

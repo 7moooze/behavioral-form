@@ -8,7 +8,7 @@ html {
 }
 
 @-ms-viewport {
-    width:device-width
+    width:device-width;
 }
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -24,17 +24,17 @@ h1{
     color: #fff;
     font-size: 64px;
     letter-spacing: 2px;
-    margin-top: 80px;
+    margin-top: 30px;
     text-align: center;
 }
 
 .content{
     background: #fff;
-    max-width: auto;
+    max-width: 90%;
     margin: 30px auto;
     padding:  20px 30px;
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1)
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
 
 
@@ -58,7 +58,25 @@ h1{
     top:1px;
 } 
 
-
+#deleteBtn{
+    background-color:#e4685d;
+	border-radius:4px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none; 
+}
+#deleteBtn:hover {
+	background-color:#eb675e;
+}
+#deleteBtn:active {
+	position:relative;
+    top:1px;
+} 
 .btn-info {
     color: #fff;
     background-color: #17a2b8;
@@ -100,8 +118,7 @@ h1{
     margin-top: 30px;
     margin-right: auto;
     margin-left: auto;
-    
-  
+    table-layout: fixed;
   }
   
   #list_div td, th {
@@ -109,11 +126,58 @@ h1{
     text-align: left;
     padding: .75rem;
     vertical-align: top;
-   border-top:1px solid #dee2e6
+   border-top:1px solid #dee2e6;
+   overflow: hidden;
+   word-wrap: break-word;
   }
   
-  #list_div tbody:nth-child(even) {
+  #list_div tr:nth-child(even) {
     background-color: #dddddd;
   }
-  
+
+  ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+li{
+    padding: 10px;
+    background: #f6f6f6;
+    font-size: 20px;
+    color: #555;
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+    height: auto;
+
+}
+
+li:hover {
+    color: #fff;
+    background-color: #6e6e6e;
+
+}
+
+li span{
+    display: block;
+}
+
+li span:nth-child(2){
+    font-size: 16px;
+    margin-top: 6px;
+    color: #999;
+}
+
+li div{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    background: rgba(255,255,255,0.6);
+    width: 40px;
+    text-align: center;
+    padding: 10px 0;
+    font-weight:  bold;
+    cursor:  pointer;
+}
+
+
 
